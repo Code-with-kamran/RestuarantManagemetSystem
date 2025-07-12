@@ -120,6 +120,7 @@ export function getPageTitle(page: string): string {
     inventory: "Inventory Management",
     staff: "Staff Management",
     settings: "Settings",
+    listproducts: "Product List",
   };
   return titles[page] || "Dashboard";
 }

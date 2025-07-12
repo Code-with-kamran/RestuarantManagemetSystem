@@ -23,47 +23,7 @@ export const Sidebar = ({ currentPage, onPageChange, isOpen, onClose }: SidebarP
   };
   return (
     <>
-      {/* <div className={`fixed inset-y-0 left-0 z-50 w-fit bg-gray-900 transform ${isOpen ? 'translate-x-0' : '-translate-x-full '} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static`}>
-        <div className="flex items-center justify-between h-16 px-6 bg-gray-800">
-          <div className="flex items-center">
-            <Coffee className="w-8 h-8 text-primary mr-3" />
-            <span className="text-white font-bold">Restaurant POS</span>
-          </div>
-          <button 
-            onClick={onClose}
-            className="lg:hidden text-gray-400 hover:text-white"
-          >
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-        
-        <nav className="mt-8">
-          {sidebarMenuItems.map((item) => (
-            <Link
-              key={item.page}
-              href={item.page}
-             
-              className={`flex items-center px-6 py-3 text-gray-300 hover:bg-gray-700 hover:text-white cursor-pointer transition duration-200 ${
-                currentPage === item.page ? 'bg-gray-700 text-white border-r-4 border-primary' : ''
-              }`}
-            >
-              <item.icon className="w-5 h-5 mr-3" />
-              {item.label}
-             
-            </Link>
-          ))}
-        </nav>
-        
-        <div className="absolute bottom-4 left-0 right-0 px-6">
-          <button 
-            onClick={() => onPageChange('login')}
-            className="flex items-center w-full px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition duration-200"
-          >
-            <LogOut className="w-5 h-5 mr-3" />
-            Logout
-          </button>
-        </div>
-      </div> */}
+    
 
       <div className={`fixed inset-y-0 left-0 z-50  bg-gray-900 transform w-1/4 max-w-100 ${isOpen ? 'translate-x-0' : '-translate-x-full '} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static`}>
         <div className="flex items-center justify-between h-16 px-6 bg-gray-800">
