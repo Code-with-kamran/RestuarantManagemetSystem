@@ -4,7 +4,8 @@
 import React, { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Image from "next/image";
-import { MOCK_STAFF, StaffMember } from "../../../lib/mockdata"; // Adjusted import path
+// Corrected import path assuming mockData is in utils/mockData.ts at the project root
+import { MOCK_STAFF, StaffMember } from "../../../lib/mockdata";
 
 const EmployeeProfilePage: React.FC = () => {
   const router = useRouter();
@@ -108,7 +109,7 @@ const EmployeeProfilePage: React.FC = () => {
           currentOffset += (item.value / total) * circumference;
           return (
             <circle
-              key={index}
+              key={index} // Added key prop
               cx={size / 2}
               cy={size / 2}
               r={radius}
@@ -167,7 +168,7 @@ const EmployeeProfilePage: React.FC = () => {
             const labelY = center + (radius + 20) * Math.sin(angle);
             return (
               <text
-                key={`label-${i}`}
+                key={`label-${i}`} // Added key prop
                 x={labelX}
                 y={labelY}
                 textAnchor="middle"
@@ -513,23 +514,6 @@ const EmployeeProfilePage: React.FC = () => {
           Back to Staff List
         </button>
       </div>
-       {/* Custom Scrollbar Style */}
-       <style jsx global>{`
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 8px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: #f1f1f1;
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #888;
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #555;
-        }
-      `}</style>
     </div>
   );
 };
