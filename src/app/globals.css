@@ -1,0 +1,135 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles for the light theme (default) */
+:root {
+  /* Colors for background, text, cards, buttons, etc. */
+  --color-card-background: #f0f2f5; /* Light background similar to image_30bec6.jpg */
+  --color-foreground: #333d47; /* Dark text for readability */
+  --color-background: #ffffff; /* White background for cards and panels */
+  --color-muted-foreground: #6c757d; /* Grey text for descriptions/placeholders */
+  --color-muted-background: #e9ecef; /* Light grey for table headers, subtle backgrounds */
+  --color-border: #dee2e6; /* Light grey borders */
+
+  /* Primary button colors (blue tones) */
+  --color-button-primary: #007bff; /* Vibrant blue for primary actions */
+  --color-button-primary-hover: #0056b3; /* Darker blue on hover */
+  --color-button-primary-foreground: #ffffff; /* White text on primary buttons */
+
+  /* Accent color for focus rings, highlights (blue tones) */
+  --color-accent: #89b4f8; /* Softer blue for focus states */
+  --color-accent-foreground: #ffffff;
+
+  /* Specific colors from the light theme dashboard (image_30bec6.jpg) */
+  --color-sidebar-background: #ffffff;
+  --color-sidebar-active: #ffe86b; /* Yellow highlight for active sidebar item */
+  --color-header-background: #ffffff;
+
+  /* Summary Card Colors (light theme) - you can make these theme-dependent too if needed */
+  --color-summary-red-bg: #ffebeb;
+  --color-summary-red-text: #dc3545;
+  --color-summary-green-bg: #e6ffed;
+  --color-summary-green-text: #28a745;
+  --color-summary-yellow-bg: #fff8e1;
+  --color-summary-yellow-text: #ffc107;
+  --color-summary-purple-bg: #f3e6ff;
+  --color-summary-purple-text: #6f42c1;
+
+  /* Chart colors - can be customized further */
+  --color-chart-line: #8884d8;
+  --color-chart-bar: #82ca9d;
+  --color-chart-grid: #e0e0e0;
+}
+
+/* Dark theme styles - applied when the 'dark' class is present on the html tag */
+html.dark {
+  /* Dark mode background and text colors from image_30bbe5.jpg */
+  --color-background: #1a1a2e; /* Deep purple/blue background */
+  --color-foreground: #e0e0e0; /* Light text for dark backgrounds */
+  --color-card-background: #282844; /* Darker card backgrounds */
+  --color-muted-foreground: #a0a0b8; /* Lighter grey for muted text */
+  --color-muted-background: #393e5a; /* Darker grey for muted elements */
+  --color-border: #444466; /* Darker, subtle borders */
+
+  /* Primary button colors (lighter blue/purple for contrast) */
+  --color-button-primary: #6a5acd; /* Royal purple/blue */
+  --color-button-primary-hover: #5d4ea8;
+  --color-button-primary-foreground: #ffffff;
+
+  /* Accent color for focus rings, highlights (vibrant purple) */
+  --color-accent: #9f7aea; /* Vibrant purple for interactivity */
+  --color-accent-foreground: #e0e0e0;
+
+  /* Specific colors from the dark theme dashboard (image_30bbe5.jpg) */
+  --color-sidebar-background: #282844;
+  --color-sidebar-active: #6a5acd; /* Matching primary button */
+  --color-header-background: #282844;
+
+  /* Summary Card Colors (dark theme) - adjust for better contrast */
+  --color-summary-red-bg: #4a1c22;
+  --color-summary-red-text: #e76c7c;
+  --color-summary-green-bg: #214d3a;
+  --color-summary-green-text: #6ee7b7;
+  --color-summary-yellow-bg: #5f4a21;
+  --color-summary-yellow-text: #f0d68f;
+  --color-summary-purple-bg: #3c2a5c;
+  --color-summary-purple-text: #b19cd9;
+
+  /* Chart colors - adjust for dark theme readability */
+  --color-chart-line: #9f7aea;
+  --color-chart-bar: #68d391;
+  --color-chart-grid: #4a4a6e;
+}
+
+
+/* Basic body styles to ensure the background color applies */
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for theme change */
+}
+
+
+/* Applying variables to common elements and components */
+/* You might want to adjust your Tailwind configuration to use these variables directly
+   instead of hardcoding them into class names like `bg-[var(--color-background)]`
+   for a cleaner approach, but this example assumes direct class usage. */
+
+/* Example of how you might define more utility classes based on your theme variables */
+.text-primary { color: var(--color-button-primary); }
+.bg-card { background-color: var(--color-card-background); }
+.border-default { border-color: var(--color-border); }
+
+/* Custom styles for specific elements if Tailwind classes are not enough */
+.form-checkbox {
+  @apply text-[var(--color-button-primary)] focus:ring-[var(--color-accent)];
+}
+
+/* Ensure icons/SVGs inherit current text color by default */
+svg {
+  stroke: currentColor;
+}
+
+/* Custom scrollbar for better aesthetics */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-muted-background); /* Track color */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-border); /* Thumb color */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted-foreground); /* Thumb hover color */
+}
+
+
