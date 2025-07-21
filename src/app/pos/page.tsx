@@ -197,7 +197,7 @@ const POSSystem: React.FC = () => {
          setIsDailySalesSummaryModalOpen={setIsDailySalesSummaryModalOpen}
       />
 
-      <main className="flex flex-col lg:flex-row flex-grow p-4 gap-4 overflow-hidden">
+      <main className="flex flex-col lg:flex-row flex-grow py-4 pl-4 gap-4 overflow-hidden">
         {/* Left Panel: Cart Summary */}
         <CartSummary
           cartItems={cartItems}

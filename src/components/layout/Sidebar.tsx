@@ -5,7 +5,7 @@ import { X, Coffee, LogOut, ChevronDown } from 'lucide-react';
 import { sidebarItems } from '@/lib/constant';
 import Link from 'next/link';
 import { useState } from 'react';
-
+import { useRouter } from 'next/navigation';
 
 interface SidebarProps {
   currentPage: string;
@@ -15,17 +15,21 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ currentPage, onPageChange, isOpen, onClose }: SidebarProps) => {
+  const router = useRouter();
   const [activeSidebarItem, setActiveSidebarItem] = useState<string | null>('dashboard');
 
   const handleSidebarItemClick = (label: string) => {
+    
     setActiveSidebarItem(prevActiveItem => (prevActiveItem === label ? null : label));
+    router.push(`/${label.toLowerCase().replace(/\s/g, '-')}`)
+    
   };
 
   return (
     <>
       <div
-        className={`fixed inset-y-0 left-0 z-50 transform w-1/4 max-w-xs
-        bg-[var(--sidebar-background)] text-[var(--sidebar-text)]
+        className={`fixed inset-y-0 left-0 z-50 transform  w-xl 
+        bg-[var(--color-card-background)] text-[var(--sidebar-text)]
         ${isOpen ? 'translate-x-0' : '-translate-x-full '}
         transition-transform duration-300 ease-in-out
         lg:translate-x-0 lg:static lg:w-64
@@ -36,7 +40,7 @@ export const Sidebar = ({ currentPage, onPageChange, isOpen, onClose }: SidebarP
         <div className="flex items-center justify-between h-16 px-6 bg-[var(--sidebar-header-bg)]">
           <div className="flex items-center">
             <Coffee className="w-8 h-8 text-[var(--sidebar-icon-color)] mr-3" /> {/* Unified icon color */}
-            <span className="text-[var(--sidebar-text)] font-bold">Restaurant POS</span>
+            <span className="text-[var(--sidebar-text)] font-bold text-md  ">Restaurant POS</span>
           </div>
           <button
             onClick={onClose}
@@ -50,7 +54,7 @@ export const Sidebar = ({ currentPage, onPageChange, isOpen, onClose }: SidebarP
         {/* Navigation Menu */}
         <nav className="mt-6">
           {sidebarItems.map((item, index) => (
-            <div key={index} className="px-4">
+            <div key={index} className="px-4 ">
               <div
                 className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer
                 ${activeSidebarItem === item.label
@@ -67,7 +71,7 @@ export const Sidebar = ({ currentPage, onPageChange, isOpen, onClose }: SidebarP
                   ) : (
                     <Link
                       href={`/${item.label.toLowerCase().replace(/\s/g, '-')}`}
-                      className="text-sm font-medium w-full"
+                      className="text-sm font-medium w-full  "
                       onClick={() => {
                         if (window.innerWidth < 1024) onClose();
                       }}

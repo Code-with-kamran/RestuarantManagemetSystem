@@ -74,10 +74,10 @@ const Header: React.FC<HeaderProps> = ({
 
         <Button
           onClick={() => setIsDailySalesSummaryModalOpen(true)}
-          className="flex items-center justify-center bg-gray-200 text-gray-800 rounded-lg shadow hover:bg-gray-300 transition-transform duration-200 active:scale-95 text-sm dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
+          className="flex items-center justify-center bg-[var(--color-muted-foreground)]   text-[var(--color-muted-background)] rounded-lg shadow hover:bg-gray-300 transition-transform duration-200 active:scale-95 text-sm dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
         >
           <BarChart3 size={20} className="mr-1" />
-          <span className="hidden sm:inline bg-slate-300">Daily Sales</span>
+          <span className="hidden sm:inline">Daily Sales</span>
         </Button>
 
         <Button

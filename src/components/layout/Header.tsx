@@ -27,7 +27,7 @@ export const Header = ({ title, userRole, onMenuToggle }: HeaderProps) => {
         <div className="flex items-center">
           <button
             onClick={onMenuToggle}
-            className="
+            className="lg:hidden
               mr-8
               text-[var(--color-text-default)]
               hover:text-[var(--color-primary)]
@@ -35,14 +35,14 @@ export const Header = ({ title, userRole, onMenuToggle }: HeaderProps) => {
           >
             <MenuIcon className="w-6 h-6" />
           </button>
-          <h1 className="
-            text-2xl font-bold
+          <h1 className="text-md
+            lg:text-2xl font-bold
             text-[var(--color-text-default)]
           ">
             {title}
           </h1>
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2">
           <ThemeToggle />
           <div className="text-right">
             <p className="
